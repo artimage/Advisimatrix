@@ -1,9 +1,9 @@
 {
   "name": "Nova",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "engines": {
-    "npm": "^3.0",
-    "node": "6.2.2"
+    "node": "6.2.2",
+    "npm": "^3.0"
   },
   "scripts": {
     "start": "meteor --settings settings.json"
