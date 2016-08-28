@@ -4,6 +4,9 @@
   "engines": {
     "npm": "^3.0"
   },
+  "scripts": {
+    "start": "meteor --settings settings.json"
+  },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
     "classnames": "^2.2.3",
