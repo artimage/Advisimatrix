@@ -37,7 +37,6 @@ Posts.addField(
   }
 );
 
-/*
 Posts.addField(
   {
     fieldName: 'difficulty',
@@ -52,7 +51,7 @@ Posts.addField(
           return [
             {value: "small", label: "Small"},
             {value: "medium", label: "Medium"},
-            {value: "larg", label: "Large"},
+            {value: "large", label: "Large"}
           ];
         }
       },
@@ -60,7 +59,7 @@ Posts.addField(
     }
   }
 );
-*/
+
 /*
 The main post list view uses a special object to determine which fields to publish,
 so we also add our new field to that object:
