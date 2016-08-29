@@ -2,8 +2,6 @@
   "name": "Nova",
   "version": "0.0.1",
   "engines": {
-    "node": "6.2.2",
-    "meteor": "1.3.2.4",
     "npm": "^3.0"
   },
   "scripts": {

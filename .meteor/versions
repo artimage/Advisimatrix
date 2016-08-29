@@ -70,6 +70,7 @@ modules-runtime@0.7.5
 mongo@1.1.10
 mongo-id@1.0.5
 mongo-livedata@1.0.12
+my-custom-package@0.0.0
 nova:api@0.26.5-nova
 nova:base-components@0.26.5-nova
 nova:base-routes@0.26.5-nova

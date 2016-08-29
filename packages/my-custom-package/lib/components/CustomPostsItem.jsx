@@ -22,7 +22,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
       postClass += " post-"+post.color;
     }
 
-    // if (post.difficulty) postClass += " post-"+post.difficulty;
+    if (post.difficulty) postClass += " post-"+post.difficulty;
 
     // ⭐ custom code ends here ⭐
 
