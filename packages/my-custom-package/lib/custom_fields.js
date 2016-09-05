@@ -37,6 +37,10 @@ Posts.addField(
   }
 );
 
+/*
+We  add a custom field for difficutly. This will be used in scoring later.
+
+*/
 Posts.addField(
   {
     fieldName: 'difficulty',
@@ -55,7 +59,7 @@ Posts.addField(
           ];
         }
       },
-      publish: false // make that field public and send it to the client
+      publish: false // hiding this field now
     }
   }
 );
