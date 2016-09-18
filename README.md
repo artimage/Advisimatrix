@@ -492,13 +492,13 @@ Telescope.routes.add({
 To change the index (`/`) route, you can do:
 
 ```js
-Telescope.routes.indexRoute = { 
-  name: "myIndexRoute", 
+Telescope.routes.indexRoute = {
+  name: "myIndexRoute",
   component: myIndexRouteComponent
 };
 ```
 
-For more complex router customizations, you can also disable the `nova:base-routes` package altogether and replace it with your own React Router code. 
+For more complex router customizations, you can also disable the `nova:base-routes` package altogether and replace it with your own React Router code.
 
 ### Using React Router In Your Components
 
@@ -516,7 +516,7 @@ class SearchForm extends Component{
 }
 
 export default withRouter(SearchForm);
-``` 
+```
 
 ## Groups & Permissions
 
@@ -543,12 +543,12 @@ Users.canView(user, document); // shortcut to check if a user can view a specifi
 Users.canEdit(user, document); // shortcut to check if a user can edit a specific document
 ```
 
-Documents can be Posts, Comments, or Users. 
+Documents can be Posts, Comments, or Users.
 
 Note that some groups are applied automatically without having to call `addToGroup`:
 
 - `anonymous`: any non-logged-in user is considered anonymous. This group is special in that anonymous users are by definition not part of any other group.
-- `default`: default group for all existing users. Is applied to every user in addition to any other groups. 
+- `default`: default group for all existing users. Is applied to every user in addition to any other groups.
 - `admins`: any user with the `isAdmin` flag set to true.
 
 ### Assigning Actions
@@ -638,6 +638,8 @@ If you create a new internationalization package, let us know so we can add it h
 - [es-ES](https://atmospherejs.com/fcallem/nova-i18n-es-es)
 - [pl-PL](https://atmospherejs.com/lusch/nova-i18n-pl-pl)
 - [ru-RU](https://github.com/fortunto2/nova-i18n-ru-ru)
+- [de-DE](https://atmospherejs.com/fzeidler/nova-i18n-de-de)
+- [pt-BR](https://github.com/lukasag/nova-i18n-pt-br)
 
 ## Cheatsheet
 
