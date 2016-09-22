@@ -13,6 +13,78 @@ const canInsert = user => Users.canDo(user, "posts.new");
 // check if user can edit a post
 const canEdit = Users.canEdit;
 
+// Categories but not companies
+Posts.addField(
+  {
+    fieldName: 'categories',
+    fieldSchema: {
+      type: [String],
+      control: "checkboxgroup",
+      optional: true,
+      insertableIf: canInsert,
+      editableIf: canEdit,
+      autoform: {
+        noselect: true,
+        type: "bootstrap-category",
+        order: 50,
+        options: function () {
+          // We want to hide companies from the category list.
+          var categories = Categories.find({ $nor: [{ parentId: { $eq: 'companies' } }, { name: { $eq: 'Companies' } }] }).map(function (category) {
+            return {
+              value: category._id,
+              label: category.name
+            };
+          });
+          return categories;
+        }
+      },
+      publish: true,
+      join: {
+        joinAs: "categoriesArray",
+        collection: () => Categories
+      }
+    }
+  }
+);
+
+PublicationUtils.addToFields(Posts.publishedFields.list, ["categories"]);
+
+Posts.addField(
+  {
+    fieldName: 'companies',
+    fieldSchema: {
+      type: [String],
+      control: "checkboxgroup", // XXX make this a select
+      optional: true,
+      insertableIf: canInsert,
+      editableIf: canEdit,
+      autoform: {
+        noselect: true,
+        type: "bootstrap-category",
+        order: 50,
+        options: function () {
+          // XXX Still need to limit to companies you ahve access to
+          var companies = Categories.find( { parentId: { $eq: 'companies' } } ).map(function (category) {
+            return {
+              value: category._id,
+              label: category.name
+            };
+          });
+          return companies;
+        }
+      },
+      publish: true//,
+      //join: {
+      //  joinAs: "companiesArray",
+      //  collection: () => Categories
+      //}
+    }
+  }
+);
+
+PublicationUtils.addToFields(Posts.publishedFields.list, ["companies"]);
+
+// XXX We should remove this and the other colorization part or use it to color posts by type
 Posts.addField(
   {
     fieldName: 'color',
@@ -95,13 +167,13 @@ Users.addField(
       autoform: {
         options: function () {
           // Taken from nova-categories/lib/custom_fields.js
-          var categories = Categories.find().map(function (category) {
+          var companies = Categories.find({ parentId: { $eq: 'companies' } }).map(function (category) {
             return {
               value: category._id,
               label: category.name
             };
           });
-          return categories;
+          return companies;
         }
       },
       publish: true // XXX publish this while testing. Make false after.
